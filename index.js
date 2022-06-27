@@ -5,7 +5,7 @@ const fs = require('fs');
 const server = http.createServer(function(req,res){
     res.writeHead(200, {'Content-Type': 'text/html'});
     // home page
-    if(req.url=='/' || req.url=='/index.html' || req.url=='/home'){
+    if(req.url=='/' || req.url=='/index' || req.url=='/home'){
         fs.readFile('./index.html', null, function(err, data){
             if(err){
                 return res.status(500).json({message: err}) ;//internal server error
@@ -15,7 +15,7 @@ const server = http.createServer(function(req,res){
         })
     }
     //about page
-    if(req.url=='/about.html' ){
+    if(req.url=='/about' ){
         fs.readFile('./about.html', null, function(err, data){
             if(err){
                 return res.status(500).json({message: err}) ;
@@ -25,7 +25,7 @@ const server = http.createServer(function(req,res){
         })
     }
     //contact page
-    if(req.url=='/contact.html' ){
+    if(req.url=='/contact' ){
         fs.readFile('./contact.html', null, function(err, data){
             if(err){
                 return res.status(500).json({message: err}) ;
